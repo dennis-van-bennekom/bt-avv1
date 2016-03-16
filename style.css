@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 1rem 2rem;
+
+  font-family: sans-serif;
+
+  color: #333;
+}
+
+article {
+  margin: 0 auto;
+  max-width: 60rem;
+}
+
+section {
+  margin: 0 auto;
+  max-width: 40rem;
+}
+
+hr {
+  margin: 2rem 0;
+
+  border-color: #ccc;
+  border-width: 1px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+p,
+code {
+  line-height: 1.4;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+audio {
+  display: block;
+  margin: 0 auto;
+}
+
+.viewport {
+  margin: 0 auto;
+  height: 50px;
+  width: 500px;
+  width: 60vw;
+
+  background-color: #DB5600;
+}
+
+.rem {
+  font-size: 48px;
+  font-size: 3rem;
+}
+
+.hidden {
+  display: none;
+}
+
+#geo {
+  display: block;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+}
+
+#geo-fallback {
+  margin: 0 auto;
+  max-width: 30rem;
+}
+
+#geo-fallback input {
+  width: 100%;
+}

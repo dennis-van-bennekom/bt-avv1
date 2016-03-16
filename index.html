@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Browser Technologies</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="//cdn.rawgit.com/isagalaev/highlight.js/master/src/styles/solarized-light.css">
+</head>
+<body>
+  <article>
+    <h1>Browser Technologies</h1>
+
+    <section>
+      <h2>&lt;picture&gt;</h2>
+
+      <p>
+        De eerste HTML technologie waar ik een fallback voor wil maken is de &lt;picture&gt; element. Hiermee kun je voor bepaalde resoluties verschillende afbeeldingen tonen.
+      </p>
+
+      <p>
+        De fallback hierin is de &lt;img&gt; tag. Die wordt geladen als de &lt;picture&gt; niet ondersteund is.
+      </p>
+    </section>
+
+    <section>
+      <h3>caniuse</h3>
+    </section>
+
+    <p class="ciu_embed" data-feature="picture" data-periods="future_1,current,past_1,past_2">
+      <a href="http://caniuse.com/#feat=picture">Can I Use picture?</a> Data on support for the picture feature across the major browsers from caniuse.com.
+    </p>
+
+    <section>
+      <h3>Code</h3>
+
+      <pre>
+        <code class="html">
+  &lt;picture&gt;
+    &lt;source
+      media="(min-width: 800px)"
+      srcset="images/720.jpg"&gt;
+    &lt;source
+      media="(min-width: 500px)"
+      srcset="images/1080.jpg"&gt;
+    &lt;img
+      src="images/480.jpg"
+      alt="Mooi bos"&gt;
+  &lt;/picture&gt;
+        </code>
+      </pre>
+    </section>
+
+    <section>
+      <h3>Demo</h3>
+    </section>
+
+    <picture>
+      <source
+        media="(min-width: 800px)"
+        srcset="images/1080.jpg">
+      <source
+        media="(min-width: 500px)"
+        srcset="images/720.jpg">
+      <img
+        src="images/480.jpg"
+        alt="Mooi bos">
+    </picture>
+
+    <hr>
+
+    <section>
+      <h2>&lt;audio&gt;</h2>
+
+      <p>
+        Het audio element wordt gebruikt om geluiden of muziek in een webpagina te laden.
+      </p>
+
+      <p>
+        De fallback hiervoor is een &lt;a&gt; element te gebruiken als de audio niet getoond kan worden, waardoor de gebruiker alsnog het bestand kan downloaden en beluisteren.
+      </p>
+    </section>
+
+    <section>
+      <h3>caniuse</h3>
+    </section>
+
+    <p class="ciu_embed" data-feature="audio" data-periods="future_1,current,past_1,past_2">
+      <a href="http://caniuse.com/#feat=audio">Can I Use audio?</a> Data on support for the audio feature across the major browsers from caniuse.com.
+    </p>
+
+    <section>
+      <h3>Code</h3>
+
+      <pre>
+        <code class="html">
+  &lt;audio controls="controls"&gt;
+    &lt;source src="audio/lekkernummer.mp3"&gt;
+    &lt;a href="audio/lekkernummer.mp3"&gt;Uw huidige browser ondersteund geen audio, download het bestand door hier te klikken.&lt;/a&gt;
+  &lt;/audio&gt;
+        </code>
+      </pre>
+    </section>
+
+    <section>
+      <h3>Demo</h3>
+    </section>
+
+    <audio controls="controls">
+      <source src="audio/lekkernummer.mp3">
+      <a href="audio/lekkernummer.mp3">Uw huidige browser ondersteund geen audio, download het bestand door hier te klikken.</a>
+    </audio>
+
+    <hr>
+
+    <section>
+      <h2>Viewport units</h2>
+
+      <p>
+        Viewports units kan je gebruiken om een percentage van je viewport te krijgen in je CSS.
+      </p>
+
+      <p>
+        De fallback hiervoor is om eerst een percentage of pixels te bepalen en daarna pas de viewport units.
+      </p>
+    </section>
+
+    <section>
+      <h3>caniuse</h3>
+    </section>
+
+    <p class="ciu_embed" data-feature="viewport-units" data-periods="future_1,current,past_1,past_2">
+      <a href="http://caniuse.com/#feat=viewport-units">Can I Use viewport-units?</a> Data on support for the viewport-units feature across the major browsers from caniuse.com.
+    </p>
+
+    <section>
+      <h3>Code</h3>
+
+      <pre>
+        <code class="css">
+  .viewport {
+    margin: 0 auto;
+    height: 50px;
+    width: 500px;
+    width: 60vw;
+
+    background-color: #DB5600;
+  }
+        </code>
+      </pre>
+    </section>
+
+    <section>
+      <h3>Demo</h3>
+    </section>
+
+    <div class="viewport"></div>
+
+    <hr>
+
+    <section>
+      <h2>rem units</h2>
+
+      <p>
+        Rem units lijken op em, maar kijken naar de root element om hun grootte te bepalen. De em kijkt altijd naar de parent.
+      </p>
+
+      <p>
+        Een fallback hiervoor is het gebruik van een pixel waarde voordat je de rem waarde gebruikt.
+      </p>
+    </section>
+
+    <section>
+      <h3>caniuse</h3>
+    </section>
+
+    <p class="ciu_embed" data-feature="rem" data-periods="future_1,current,past_1,past_2">
+      <a href="http://caniuse.com/#feat=rem">Can I Use rem?</a> Data on support for the rem feature across the major browsers from caniuse.com.
+    </p>
+
+    <section>
+      <h3>Code</h3>
+
+      <pre>
+        <code class="css">
+  .rem {
+    font-size: 48px;
+    font-size: 3rem;
+  }
+        </code>
+      </pre>
+    </section>
+
+    <section>
+      <h3>Demo</h3>
+
+      <p class="rem">
+        Dit is een leuke demo.
+      </p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Geolocatie</h2>
+
+      <p>
+        Met geolocatie kan je toegang krijgen tot de locatie van het apparaat waar je website op draait.
+      </p>
+
+      <p>
+        Een fallback hiervoor is het tonen van een input veld als het ophalen van een locatie niet lukt.
+      </p>
+    </section>
+
+    <section>
+      <h3>caniuse</h3>
+    </section>
+
+    <p class="ciu_embed" data-feature="geolocation" data-periods="future_1,current,past_1,past_2">
+      <a href="http://caniuse.com/#feat=geolocation">Can I Use geolocation?</a> Data on support for the geolocation feature across the major browsers from caniuse.com.
+    </p>
+
+    <section>
+      <h3>Code</h3>
+
+      <pre>
+        <code class="html">
+  &lt;button id="geo">Locatie verkrijgen</button>
+
+  &lt;div class="hidden" id="geo-fallback"&gt;
+    &lt;p&gt;Locatie kon niet opgehaald worden. Voer hier uw locatie handmatig in:&lt;/p&gt;
+    &lt;input type="text"&gt;
+  &lt;/div&gt;
+        </code>
+      </pre>
+
+      <pre>
+        <code class="css">
+  #geo {
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+  }
+
+  #geo-fallback {
+    margin: 0 auto;
+    max-width: 30rem;
+  }
+
+  #geo-fallback input {
+    width: 100%;
+  }
+        </code>
+      </pre>
+
+      <pre>
+        <code class="js">
+  (function(){
+    document.getElementById('geo').addEventListener('click', function() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function(data) {
+            alert("location: " + data.coords.latitude + ", " + data.coords.longitude);
+          },
+          function() {
+            fallback();
+          }
+        )
+      } else {
+        fallback();
+      }
+    });
+
+    function fallback() {
+      document.getElementById('geo-fallback').classList.remove('hidden');
+    }
+  }());
+        </code>
+      </pre>
+    </section>
+
+    <section>
+      <h3>Demo</h3>
+
+      <button id="geo">Locatie verkrijgen</button>
+
+      <div class="hidden" id="geo-fallback">
+        <p>Locatie kon niet opgehaald worden. Voer hier uw locatie handmatig in:</p>
+        <input type="text">
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Gamepad API</h2>
+
+      <p>
+        Met de gamepad API kan je controllers aansluiten en die gebruiken op het web.
+      </p>
+
+      <p>
+        Een fallback hiervoor zou kunnen zijn dat als er geen support of controllers zijn het toetsenbord gebruikt kan worden.
+      </p>
+    </section>
+
+    <section>
+      <h3>caniuse</h3>
+    </section>
+
+    <p class="ciu_embed" data-feature="gamepad" data-periods="future_1,current,past_1,past_2">
+      <a href="http://caniuse.com/#feat=gamepad">Can I Use gamepad?</a> Data on support for the gamepad feature across the major browsers from caniuse.com.
+    </p>
+
+    <section>
+      <h3>Code</h3>
+
+      <pre>
+        <code class="js">
+  if (navigator.getGamepads) {
+    window.addEventListener('gamepadconnected', function() {
+      alert('Gamepad connected');
+    });
+
+    window.addEventListener('gamepaddisconnected', function() {
+      alert('Gamepad disconnected');
+    })
+  } else {
+    fallback();
+  }
+
+  function fallback() {
+    // Use keyboard if gamepad is not supported
+
+    alert('Gamepad not supported, please use your keyboard or update your browser');
+    useKeyboard();
+  }
+        </code>
+      </pre>
+    </section>
+  </article>
+
+  <script src="//cdn.jsdelivr.net/caniuse-embed/1.0.0/caniuse-embed.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="main.js"></script>
+</body>
+</html>
