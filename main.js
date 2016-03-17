@@ -16,6 +16,7 @@
         }
       )
     }
+  }
 
   if (navigator.getGamepads) {
     window.addEventListener('gamepadconnected', function() {
