@@ -1,11 +1,11 @@
 (function(){
   var geoFallback = document.getElementById('geo-fallback');
 
+  // Hide als geolocation er in
+  geoFallback.classList.add('hidden');
+
   document.getElementById('geo').addEventListener('click', function() {
     if (navigator.geolocation) {
-      // Hide als geolocation er in
-      geoFallback.classList.add('hidden');
-
       navigator.geolocation.getCurrentPosition(
         function(data) {
           alert("location: " + data.coords.latitude + ", " + data.coords.longitude);
@@ -15,6 +15,8 @@
           geoFallback.classList.remove('hidden');
         }
       )
+    } else {
+      geoFallback.classList.remove('hidden');
     }
   });
 
