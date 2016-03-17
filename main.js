@@ -1,22 +1,21 @@
 (function(){
+  var geoFallback = document.getElementById('geo-fallback');
+
   document.getElementById('geo').addEventListener('click', function() {
     if (navigator.geolocation) {
+      // Hide als geolocation er in
+      geoFallback.classList.add('hidden');
+
       navigator.geolocation.getCurrentPosition(
         function(data) {
           alert("location: " + data.coords.latitude + ", " + data.coords.longitude);
         },
         function() {
-          geoFallback();
+          // Als het alsnog niet werkt, laat dan de fallback weer zien.
+          geoFallback.classList.remove('hidden');
         }
       )
-    } else {
-      geoFallback();
     }
-  });
-
-  function geoFallback() {
-    document.getElementById('geo-fallback').classList.remove('hidden');
-  }
 
   if (navigator.getGamepads) {
     window.addEventListener('gamepadconnected', function() {

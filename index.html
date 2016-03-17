@@ -228,7 +228,7 @@
         <code class="html">
   &lt;button id="geo">Locatie verkrijgen</button>
 
-  &lt;div class="hidden" id="geo-fallback"&gt;
+  &lt;div id="geo-fallback"&gt;
     &lt;p&gt;Locatie kon niet opgehaald worden. Voer hier uw locatie handmatig in:&lt;/p&gt;
     &lt;input type="text"&gt;
   &lt;/div&gt;
@@ -257,24 +257,24 @@
       <pre>
         <code class="js">
   (function(){
+    var geoFallback = document.getElementById('geo-fallback');
+
     document.getElementById('geo').addEventListener('click', function() {
       if (navigator.geolocation) {
+        // Hide als geolocation er in
+        geoFallback.classList.add('hidden');
+
         navigator.geolocation.getCurrentPosition(
           function(data) {
             alert("location: " + data.coords.latitude + ", " + data.coords.longitude);
           },
           function() {
-            fallback();
+            // Als het alsnog niet werkt, laat dan de fallback weer zien.
+            geoFallback.classList.remove('hidden');
           }
         )
-      } else {
-        fallback();
       }
     });
-
-    function fallback() {
-      document.getElementById('geo-fallback').classList.remove('hidden');
-    }
   }());
         </code>
       </pre>
@@ -285,7 +285,7 @@
 
       <button id="geo">Locatie verkrijgen</button>
 
-      <div class="hidden" id="geo-fallback">
+      <div id="geo-fallback">
         <p>Locatie kon niet opgehaald worden. Voer hier uw locatie handmatig in:</p>
         <input type="text">
       </div>
